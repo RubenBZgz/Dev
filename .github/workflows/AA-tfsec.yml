@@ -8,8 +8,8 @@ on:
   workflow_dispatch:
 
 permissions:
-  #contents: read
-  security-events: write
+  contents: read
+  #security-events: write
   #actions: write  # Add this line to provide necessary access
 
 jobs:
