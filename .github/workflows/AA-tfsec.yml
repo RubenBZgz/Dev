@@ -16,10 +16,6 @@ jobs:
             contents: read
             pull-requests: write
 
-        strategy:
-          matrix:
-            folder: [07_Azure_Container_Apps] # List of project folders
-
         steps:
           - name: Clone repo
             uses: actions/checkout@master
@@ -27,7 +23,7 @@ jobs:
           - name: Install tfsec
             run: |
               curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install_linux.sh | bash
-              sudo mv tfsec /usr/local/bin/
+              #sudo mv tfsec /usr/local/bin/
             
           - name: Run tfsec
             run: |
@@ -59,10 +55,6 @@ jobs:
       permissions:
           contents: read
           pull-requests: write
-
-      strategy:
-        matrix:
-          folder: [07_Azure_Container_Apps] # List of project folders
 
       steps:
         - name: Clone repo
