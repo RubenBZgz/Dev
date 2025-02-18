@@ -1,4 +1,7 @@
-/.terraform/
+#/Terraform/07_Azure_Container_Apps/.terraform
+.terraform
+.terraform.lock.hcl
 
-variables.tf 
-backend.tf 
+
+
+backend.tf
