@@ -9,7 +9,7 @@ on:
 
 permissions:
   contents: read
-  #security-events: write
+  security-events: write
   #actions: write  # Add this line to provide necessary access
 
 jobs:
