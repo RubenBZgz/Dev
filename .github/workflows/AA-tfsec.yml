@@ -65,7 +65,7 @@ jobs:
           with:
             soft_fail: true
             working_directory: .
-            additional_args: "--out tfsec.sarif"
+            additional_args: "--out tfsec.sarif --no-color"
 
         - name: List files in repository
           run: ls -alR .
