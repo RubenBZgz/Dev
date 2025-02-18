@@ -9,48 +9,17 @@ on:
 
 permissions:
   #contents: write
-  security-events: write
+  #security-events: write
   actions: read
 
-jobs:
-    tfsec:
-        name: tfsec PR commenter
-        runs-on: ubuntu-latest
-
-        steps:
-          - name: Clone repo
-            uses: actions/checkout@master
-
-          - name: Install tfsec
-            run: |
-              curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install_linux.sh | bash
-              #sudo mv tfsec /usr/local/bin/
-            
-          - name: Run tfsec
-            run: |
-              tfsec --format sarif --out tfsec.sarif --soft-fail true 
-
-          - name: List files in repository
-            run: ls -alR .
-
-          - name: Find all files
-            run: find . -type f
-
-
-          - name: Upload SARIF file
-            uses: github/codeql-action/upload-sarif@v3
-            with:
-              # Path to SARIF file relative to the root of the repository
-              sarif_file: tfsec.sarif
-              
-              
+jobs:    
           # - name: Upload TFsec scan results to GitHub Security tab
           #   uses: github/codeql-action/upload-sarif@main
           #   with:
           #     sarif_file: ./Terraform/${{ matrix.folder }}/tfsec.sarif
 
-    prueba2:
-      name: Prueba 
+    tfsec:
+      name: TFsec 
       runs-on: ubuntu-latest
 
       steps:
@@ -63,8 +32,6 @@ jobs:
             soft_fail: true
             working_directory: .
             format: sarif
-            #additional_args: "--out tfsec.sarif --no-color"
-            #additional_args: "--out tfsec.sarif --no-colour"
             additional_args: "--out tfsec.sarif"
 
         - name: See sarif file
