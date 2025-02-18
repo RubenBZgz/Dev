@@ -65,12 +65,14 @@ jobs:
           with:
             soft_fail: true
             working_directory: .
+            format: sarif
             #additional_args: "--out tfsec.sarif --no-color"
-            additional_args: "--out tfsec.sarif --no-colour"
+            #additional_args: "--out tfsec.sarif --no-colour"
+            additional_args: "--out tfsec.sarif"
 
         - name: See sarif file
           run: cat tfsec.sarif
-          
+
         - name: Upload SARIF file
           uses: github/codeql-action/upload-sarif@v3
           with:
