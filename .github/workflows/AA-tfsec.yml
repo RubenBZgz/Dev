@@ -9,8 +9,8 @@ on:
 
 permissions:
   #contents: write
-  #security-events: write
-  actions: read
+  security-events: write
+  #actions: read
 
 jobs:    
           # - name: Upload TFsec scan results to GitHub Security tab
