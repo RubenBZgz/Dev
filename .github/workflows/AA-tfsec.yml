@@ -65,18 +65,8 @@ jobs:
           with:
             soft_fail: true
             working_directory: .
-
-        - name: tfsec
-          uses: aquasecurity/tfsec-action@v1.0.0
-          with:
-            soft_fail: true
-            working_directory: .\Terraform\07_Azure_Container_Apps
-
-        - name: Run tfsec
-          run: |
-            tfsec --format sarif --out tfsec.sarif --soft-fail true 
-
-
+            out: tfsec.sarif
+            
         - name: List files in repository
           run: ls -alR .
 
