@@ -8,16 +8,10 @@ on:
   workflow_dispatch:
 
 permissions:
-  #contents: write
   security-events: write
   #actions: read
 
 jobs:    
-          # - name: Upload TFsec scan results to GitHub Security tab
-          #   uses: github/codeql-action/upload-sarif@main
-          #   with:
-          #     sarif_file: ./Terraform/${{ matrix.folder }}/tfsec.sarif
-
     tfsec:
       name: TFsec 
       runs-on: ubuntu-latest
